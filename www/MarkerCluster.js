@@ -70,6 +70,7 @@ var MarkerCluster = function(map, markerClusterId, markerClusterOptions, _exec) 
     value: 999,
     writable: false
   });
+
   Object.defineProperty(self, "boundsDraw", {
     value: markerClusterOptions.boundsDraw === true,
     writable: false
@@ -242,6 +243,7 @@ MarkerCluster.prototype.onClusterClicked = function(cluster) {
   }
   this.map.animateCamera({
     target: cluster.getBounds(),
+    padding:10,
     duration: 500
   }, function() {
     if (self.boundsDraw) {
